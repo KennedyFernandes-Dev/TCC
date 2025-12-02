@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispositivos</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="Devices.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+            <li class="active"><a href="Devices.html"><i class="fas fa-desktop"></i></a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header class="dashboard-header">
+        </header>
+
+        <section class="card-container">
+            <div class="card devices-card">
+                <div class="card-header devices-header">
+                    <div class="header-title">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h2>Dispositivos Conectados na Rede</h2>
+                        <span class="device-count" id="device-count-span">Carregando...</span>
+                    </div>
+                </div>
+
+                <div class="devices-table-container">
+                    <table class="devices-table">
+                        <thead>
+                            <tr>
+                                <th>TIPO</th>
+                                <th>DISPOSITIVO</th>
+                                <th>ENDEREÇO IP</th>
+                                <th>MAC ADDRESS</th>
+                                <th>GATEWAY</th>
+                                <th>STATUS</th>
+                                <th>AÇÕES</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="Devices.js"></script>
+</body>
+</html>

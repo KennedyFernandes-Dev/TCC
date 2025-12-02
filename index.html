@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Monitoramento VPN</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="Dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <ul>
+            <li class="active"><a href="index.html"><i class="fas fa-home"></i></a></li>
+            <li><a href="Devices.html"><i class="fas fa-desktop"></i></a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <h1>Painel de Controle</h1>
+                <p class="status-line">Monitoramento em Tempo Real da Infraestrutura VPN</p>
+            </div>
+            <div class="header-right">
+                <span class="system-status online"><i class="fas fa-wifi"></i> Sistema Online</span>
+            </div>
+        </header>
+
+        <section class="grid-container">
+            
+            <div class="card status-card">
+                <div class="card-header">
+                    <i class="fas fa-network-wired"></i> Status da Conexão
+                </div>
+                <div class="status-content vpn-status-content">
+                    
+                    <div class="vpn-status-indicator connected">
+                        <div class="status-icon-circle">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="status-text-group">
+                            <span class="status-label">VPN Ativa</span>
+                            <span class="status-uptime">Uptime: 2h, 15min e 51s</span>
+                        </div>
+                    </div>
+
+                    <div class="vpn-details-grid">
+                        <div class="detail-item">
+                            <span class="label"><i class="fas fa-globe"></i> IP Público (WAN)</span>
+                            <span class="value">179.60.128.169</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label"><i class="fas fa-users"></i> Dispositivos</span>
+                            <span class="value" id="device-count">--</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label"><i class="fas fa-server"></i> RPi Servidor</span>
+                            <span class="value">192.168.160.10</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label"><i class="fas fa-laptop"></i> RPi Cliente</span>
+                            <span class="value">192.168.160.20</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card chart-card">
+                <div class="card-header">Uso de Memória RAM</div>
+                <div class="chart-container">
+                    <canvas id="ramChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card chart-card">
+                <div class="card-header">Uso de CPU</div>
+                <div class="chart-container">
+                    <canvas id="cpuChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card wide-card traffic-rpi-card">
+                <div class="card-header">Uso de Armazenamento</div>
+                <div class="chart-container">
+                    <canvas id="rpiTrafficChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card chart-card">
+                <div class="card-header">Temperatura da CPU</div>
+                <div class="chart-container">
+                    <canvas id="energyChart"></canvas>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="Dashboard.js"></script>
+</body>
+</html>

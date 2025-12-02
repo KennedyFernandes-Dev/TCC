@@ -1,0 +1,186 @@
+/* Dashboard.css Refatorado */
+
+/* Configuração do Grid Principal */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto; /* Linhas automáticas */
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+/* Cards de Status e Seleção ocupam 2 colunas cada na primeira linha */
+.status-card {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.mini-status-card {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cards de Gráficos Padrão ocupam 2 colunas */
+.chart-card {
+    grid-column: span 2;
+    min-height: 300px;
+}
+
+/* Card Largo (Storage) ocupa 2 colunas também, mas pode ser ajustado para 4 se quiser full width */
+.wide-card {
+    grid-column: span 2;
+    min-height: 300px;
+}
+
+/* --- Estilização Interna dos Cards --- */
+
+/* Status VPN */
+.vpn-status-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    padding: 10px 0;
+}
+
+.vpn-status-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--green-status);
+}
+
+.vpn-status-indicator i {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.vpn-details {
+    display: flex;
+    gap: 30px;
+    text-align: left;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-item .label {
+    font-size: 12px;
+    color: var(--subtle-text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.detail-item .value {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* Select do Raspberry */
+.rpi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rpi-select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    background-color: #f8f9fa;
+    color: var(--text-color);
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Barras de Progresso (Detalhes do Rpi) */
+.status-bar {
+    margin-top: 15px;
+}
+
+.status-bar label {
+    font-size: 13px;
+    color: var(--subtle-text);
+    margin-bottom: 5px;
+    display: block;
+}
+
+.progress-bar-container {
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    height: 8px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+.progress-bar.orange { background-color: #f39c12; }
+.progress-bar.green { background-color: #2ecc71; }
+
+.progress-text {
+    font-size: 12px;
+    color: var(--text-color);
+    font-weight: 600;
+    float: right;
+    margin-top: 2px;
+}
+
+/* --- Contêineres de Gráficos --- */
+.chart-container {
+    position: relative;
+    height: 220px; /* Altura fixa para evitar distorção */
+    width: 100%;
+}
+
+/* --- Responsividade --- */
+
+/* Tablets e telas médias */
+@media (max-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Em telas médias, tudo vira 2 colunas (full row no grid de 2) ou 1 coluna */
+    .status-card, .mini-status-card, .chart-card, .wide-card {
+        grid-column: span 1; 
+    }
+    
+    .vpn-status-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Uma coluna só */
+    }
+
+    .status-card, .mini-status-card, .chart-card, .wide-card {
+        grid-column: span 1;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .header-right {
+        margin-top: 10px;
+    }
+}

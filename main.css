@@ -1,0 +1,242 @@
+:root {
+    --bg-color: #f0f2f5;
+    --card-bg: #ffffff;
+    --sidebar-bg: #34495e;
+    --primary-color: #3498db;
+    --green-status: #2ecc71;
+    --red-status: #e74c3c;
+    --text-color: #333;
+    --subtle-text: #777;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --border-color: #e0e0e0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    display: flex;
+    color: var(--text-color);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 60px;
+    background-color: var(--sidebar-bg);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.sidebar .logo-placeholder {
+    width: 40px; /* Corrigido de 400px para 40px */
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 0;
+    cursor: pointer;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s, background-color 0.3s;
+    position: relative;
+    width: 60px;
+    text-align: center;
+}
+
+.sidebar ul li:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar ul li a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar ul li i {
+    font-size: 20px;
+}
+
+.sidebar ul li.active {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 60px;
+}
+
+/* Header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-left h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.status-line {
+    color: var(--subtle-text);
+    font-size: 14px;
+    margin: 0;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.system-status {
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.system-status.online {
+    background-color: rgba(46, 204, 113, 0.2);
+    color: var(--green-status);
+}
+
+.user-profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 15px;
+    border: 2px solid var(--primary-color);
+}
+
+/* General Card Styling */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+/* Botões */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.btn-secondary {
+    background-color: #e9ecef;
+    color: var(--subtle-text);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #d8dbe0;
+}
+
+.btn-secondary i {
+    margin-right: 8px;
+}
+
+/* Responsividade geral */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px 0;
+        position: static;
+    }
+
+    .sidebar ul {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .sidebar ul li {
+        padding: 10px 0;
+    }
+
+    .sidebar ul li.active::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 25px;
+        height: 4px;
+        background-color: var(--primary-color);
+    }
+    .sidebar ul li.active {
+        background-color: initial;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-right {
+        margin-top: 10px;
+    }
+}
