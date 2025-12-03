@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: {
-                    y: { min: 0, max: 8.0, title: { display: true, text: 'GB' } }
+                    y: { min: 0, max: 8.0, title: { display: true, text: 'GB %' } }
                 }
             }
         });
@@ -182,4 +182,5 @@ document.addEventListener('DOMContentLoaded', async function () {
         console.log('Atualizando dashboard...');
         updateDashboard();
     }, 30000);
+
 });
